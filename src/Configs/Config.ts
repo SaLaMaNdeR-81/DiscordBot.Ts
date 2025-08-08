@@ -29,6 +29,7 @@ const Config = {
             "5️⃣ Activity 5",
             "6️⃣ Activity 6",
             "7️⃣ Activity 7",
+            "7️⃣ Activity 8",
     ]
 
 }

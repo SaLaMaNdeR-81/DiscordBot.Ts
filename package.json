@@ -1,0 +1,26 @@
+{
+  "name": "discordbot.ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@discordjs/rest": "^2.5.1",
+    "@discordjs/voice": "^0.18.0",
+    "discord-api-types": "^0.38.17",
+    "discord.js": "^14.21.0",
+    "dotenv": "^17.2.1",
+    "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

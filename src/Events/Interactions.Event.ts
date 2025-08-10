@@ -4,8 +4,8 @@ import { Events, ActivityType, Interaction } from "discord.js";
 import EnvConfig from '../Configs/env';
 import { Config } from "../Configs/Config";
 import {client as Client} from '../Configs/Client'
-// import { commands,CommandsHandler } from "../Handlers/Commands.Handler";
-import { NewCommandsHandler ,Commands } from "../Handlers/NewCommands.Handler";
+import { CommandsHandler ,Commands } from "../Handlers/Commands.Handler";
+import { ButtonHandler } from "../Handlers/Components.Handler";
 
 // const router = Router();
 
@@ -47,7 +47,11 @@ export default class EventSystem{
           await command.Execute(interaction);
         }
 
-        // You can later handle message menu, buttons, modals here too
+        // ButtonHandler Interactions
+        if (interaction.isButton()) {
+          await ButtonHandler.Execute(interaction);
+        }
+
       } catch (error) {
         console.error("❌ Error handling interaction:", error);
         if (interaction.isRepliable()) {

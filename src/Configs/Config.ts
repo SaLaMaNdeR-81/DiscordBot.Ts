@@ -1,4 +1,5 @@
 //  const Config = require('./Config');
+import { WarAdminCommand } from '../Models/Embeds';
 import EnvConfig from './env';
 
 const Config = {
@@ -16,8 +17,9 @@ const Config = {
         EmbedColor: 0x00ff62,
     },
 
+    Admins: ["499404559592980480"],
     Channels:{
-        WELCOME : "",
+        WELCOME : "835741700462608384",
         BOARDER : ""
     },
 
@@ -30,7 +32,11 @@ const Config = {
             "6️⃣ Activity 6",
             "7️⃣ Activity 7",
             "7️⃣ Activity 8",
-    ]
+    ],
+
+    SpcialEmbeds: {
+        WarAdminCommand: WarAdminCommand
+    }
 
 }
 

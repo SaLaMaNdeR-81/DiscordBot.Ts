@@ -10,8 +10,7 @@ import { ButtonHandler } from "./Handlers/Components.Handler";
 
 export class App {
   constructor() {
-    // CommandsHandler();
-    CommandsHandler();
+    CommandsHandler.Initialize();
     EventsHandler.Initialize();
     ButtonHandler.Initialize();
   }

@@ -2,7 +2,8 @@ import { SlashCommandBuilder, CommandInteraction } from "discord.js";
 
 export default class CommandSystem {
     Active:boolean= false
-
+    DMOnly = true;
+    AdminOnly = true
 
     public readonly Data = new SlashCommandBuilder()
         .setName("template")

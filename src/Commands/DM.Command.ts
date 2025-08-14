@@ -1,28 +1,20 @@
 import { SlashCommandBuilder, CommandInteraction } from "discord.js";
 import { ButtonBuilder, ActionRowBuilder,ButtonStyle } from "discord.js";
 
-import ButtonSystem from "../Components/Buttons/!Template.Button";
+import ButtonSystem from "../Components/Buttons/Direct.Button";
 
 export default class CommandSystem {
     Active:boolean= true
+    AdminOnly = true
 
-    PingBtn = new ButtonBuilder()
-        .setLabel('Ping')
-        .setStyle(ButtonStyle.Danger)
-        .setCustomId('Ping-Button')
-        .setEmoji('🏓');
-        
-    row = new ActionRowBuilder()
-        .addComponents(this.PingBtn)
-        
     public readonly Data = new SlashCommandBuilder()
-        .setName("ping")
-        .setDescription("This is a template command for demonstration purposes.")
+        .setName("direct")
+        .setDescription("Send a direct message to the user")
 
     public async Execute (interaction: CommandInteraction) {
         try {
-            await interaction.deferReply({ ephemeral: true });
-            await setTimeout(() => {}, 2000);
+            // await interaction.deferReply({ ephemeral: true });
+            // await setTimeout(() => {}, 2000);
             await interaction.reply({
                 // content: "Pong!",
                 components: [ButtonSystem.Build()],

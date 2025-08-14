@@ -5,11 +5,12 @@ export default class ButtonSystem {
     static Lable: string = "Template Button";
     static Emoji: string = "🏓";
     static Active: boolean = true;
+    static AdminOnly:boolean = true
 
     static Build() {
         const button = new ButtonBuilder()
             .setCustomId(this.Name)
-            .setLabel("Template Button")
+            .setLabel(this.Lable)
             .setEmoji(this.Emoji)
             .setStyle(ButtonStyle.Primary);
 

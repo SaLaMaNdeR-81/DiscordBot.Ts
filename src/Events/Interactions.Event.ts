@@ -4,7 +4,7 @@ import { Events, ActivityType, Interaction } from "discord.js";
 import EnvConfig from '../Configs/env';
 import { Config } from "../Configs/Config";
 import {client as Client} from '../Configs/Client'
-import { CommandsHandler ,Commands } from "../Handlers/Commands.Handler";
+import { CommandsHandler } from "../Handlers/Commands.Handler";
 import { ButtonHandler } from "../Handlers/Components.Handler";
 
 // const router = Router();
@@ -19,32 +19,12 @@ export default class EventSystem{
       try {
         // Slash Commands
         if (interaction.isChatInputCommand()) {
-          const command = Commands.find((cmd) => cmd.Data.name === interaction.commandName);
-          if (!command) {
-            await interaction.reply({
-              content: "Command not found.",
-              ephemeral: true,
-            });
-            return;
-          }
-
-          await command.Execute(interaction);
+          CommandsHandler.Execute_Commands(interaction);
         }
 
         // User Context Menu Commands
         if (interaction.isUserContextMenuCommand()) {
-          const command = Commands.find(
-            (cmd) => cmd.Data.name === interaction.commandName
-          );
-          if (!command) {
-            await interaction.reply({
-              content: "Command not found Context.",
-              ephemeral: true,
-            });
-            return;
-          }
-
-          await command.Execute(interaction);
+          CommandsHandler.Execute_ContextMenu(interaction);
         }
 
         // ButtonHandler Interactions

@@ -1,7 +1,9 @@
 import {ContextMenuCommandBuilder,ApplicationCommandType,UserContextMenuCommandInteraction,EmbedBuilder,codeBlock,} from "discord.js";
 
 export default class CommandSystem {
-    Active:boolean= false
+    Active:boolean= true
+    AdminOnly = true
+    DMOnly = false
 
     public readonly Data = new ContextMenuCommandBuilder()
         .setName("Template-T2")

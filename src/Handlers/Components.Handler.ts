@@ -1,6 +1,7 @@
 import Path from 'path'
 import Fs from 'fs'
 import { ButtonInteraction } from 'discord.js';
+import { Config } from '../Configs/Config';
 
 //# =============              =============
 //#              ==============
@@ -11,6 +12,7 @@ import { ButtonInteraction } from 'discord.js';
 type ButtonClassType = {
     Name: string;
     Active: boolean;
+    AdminOnly: boolean;
     Execute: (interaction: ButtonInteraction) => Promise<void>;
 };
 
@@ -30,9 +32,17 @@ export class ButtonHandler {
     }
 
     static async Execute(interaction: ButtonInteraction) {
+        const User = interaction.user.id;
         const button = this.Buttons.find(btn => btn.Name === interaction.customId);
         if (!button) {
             console.warn(`Button with ID ${interaction.customId} not found.`);
+            return;
+        }
+        if (button.AdminOnly && !Config.Admins.includes(User)) {
+            await interaction.reply({
+              embeds: [Config.SpcialEmbeds.WarAdminCommand],
+              ephemeral: true,
+            });
             return;
         }
         try {
